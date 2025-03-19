@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita de Sorvetão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1, h2, h3 {
+            color: #d62828;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        #descricao {
+            font-style: italic;
+        }
+
+        img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        img:hover {
+            transform: scale(1.05);
+        }
+        
+        ul, ol {
+            max-width: 90%;
+            margin: auto;
+            text-align: left;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #d62828;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        button:hover {
+            background-color: #9b1d1d;
+            transform: scale(1.05);
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            ul, ol {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Receita de Sorvetão</h1>
+    <p id="descricao">Uma receita simples e fácil para se deliciar em dias de verão.</p>
+    
+    <a id="linkImagem" href="#">
+        <img id="imagem" src="https://via.placeholder.com/350" alt="Sorvetão">
+    </a>
+
+    <hr>
+
+    <h2>Ingredientes</h2>
+    <ul id="listaIngredientes">
+        <li>800g de doce de leite</li>
+        <li>400ml de creme de leite</li>
+        <li>2 caixas de bis</li>
+        <li>1,5l de sorvete de flocos</li>
+    </ul>
+
+    <hr>
+
+    <h2>Passo a passo</h2>
+    <ol id="passos">
+        <li>Pique o bis enquanto o sorvete amolece.</li>
+        <li>Bata o creme de leite, doce de leite e alguns pedaços de bis.</li>
+        <li>Despeje na travessa e coloque bis por cima.</li>
+        <li>Leve ao freezer por 25 minutos.</li>
+        <li>Adicione o sorvete e finalize com mais bis.</li>
+        <li>Leve ao congelador por 2 horas.</li>
+    </ol>
+
+    <h3 id="para1">Fonte: <a href="https://www.tudogostoso.com.br/receita/43310-pave-irresistivel-de-bis-e-sorvete.html" target="_blank">Strogonoff de Bis</a></h3>
+
+    <hr>
+
+    <button onclick="alterarTexto()">Alterar Texto do Título</button>
+    <button onclick="alterarImagem()">Alterar Imagem</button>
+    <button onclick="alterarEstilo()">Mudar Estilo do Parágrafo</button>
+    <button onclick="mostrarEsconder()">Ocultar/Exibir Ingredientes</button>
+
+    <script>
+        function alterarTexto() {
+            let titulo = document.getElementById('titulo');
+            titulo.innerText = titulo.innerText === "Receita de Sorvetão" ? "Receita de Sorvetão Delicioso!" : "Receita de Sorvetão";
+        }
+
+        function alterarImagem() {
+            let imagem = document.getElementById('imagem');
+            let linkImagem = document.getElementById('linkImagem');
+            
+            if (imagem.src.includes("placeholder")) {
+                imagem.src = "https://via.placeholder.com/350/ffcc00";
+                imagem.alt = "Nova imagem do sorvetão";
+                linkImagem.href = "#";
+            } else {
+                imagem.src = "https://via.placeholder.com/350";
+                imagem.alt = "Sorvetão";
+                linkImagem.href = "#";
+            }
+        }
+
+        function alterarEstilo() {
+            let descricao = document.getElementById('descricao');
+            descricao.style.color = descricao.style.color === "#4a4a4a" ? "#d62828" : "#4a4a4a";
+            descricao.style.fontSize = descricao.style.fontSize === "20px" ? "18px" : "20px";
+            descricao.style.fontWeight = descricao.style.fontWeight === "bold" ? "normal" : "bold";
+            descricao.style.textAlign = "center";
+        }
+
+        function mostrarEsconder() {
+            let lista = document.getElementById('listaIngredientes');
+            lista.classList.toggle('oculto');
+        }
+    </script>
+</body>
+</html>
